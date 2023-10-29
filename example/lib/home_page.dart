@@ -15,8 +15,9 @@ class HomePageState extends State<HomePage> {
       body: Center(child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(getAsmaulHusna(2)),
-          Text(getAsmaulHusna(2)),
+          Text(getArabicName(2)),
+          Text(getEnglishName(2)),
+          Text(getDescritption(2)),
         ],
       )),
     );
