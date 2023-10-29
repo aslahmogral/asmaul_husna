@@ -1,4 +1,4 @@
-import 'package:example/home_page.dart';
+import 'package:asmaulhusna/asmaulhusna.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,3 +30,47 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => HomePageState();
+}
+
+List<Text> nintynineNamesInEnglish() {
+  List<Text> names = [];
+  getEveryEnglishName().forEach((element) {
+    names.add(Text(element));
+  });
+  return names;
+}
+
+class HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(getArabicName(1)),
+          Text(getEnglishName(1)),
+          Text(getDescritption(1)),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text('99 names'),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            color: Color.fromARGB(255, 231, 225, 166),
+            height: 500,
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(child: Column(children: [...nintynineNamesInEnglish()],)))
+          
+        ],
+      )),
+    );
+  }
+}
