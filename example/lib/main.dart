@@ -14,15 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+       
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
@@ -39,8 +31,10 @@ class HomePage extends StatefulWidget {
 
 List<Text> nintynineNamesInEnglish() {
   List<Text> names = [];
+  int i = 1;
   getEveryEnglishName().forEach((element) {
-    names.add(Text(element));
+    names.add(Text('${i.toString()} - $element'));
+    i++;
   });
   return names;
 }
@@ -64,11 +58,13 @@ class HomePageState extends State<HomePage> {
             height: 10,
           ),
           Container(
-            color: Color.fromARGB(255, 231, 225, 166),
-            height: 500,
-            width: MediaQuery.of(context).size.width,
-            child: SingleChildScrollView(child: Column(children: [...nintynineNamesInEnglish()],)))
-          
+              color: const Color.fromARGB(255, 231, 225, 166),
+              height: 500,
+              width: MediaQuery.of(context).size.width,
+              child: SingleChildScrollView(
+                  child: Column(
+                children: [...nintynineNamesInEnglish()],
+              )))
         ],
       )),
     );
